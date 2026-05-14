@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Predict{% endblock %}
+{% block content %}
+<section class="predict-section">
+    <div class="container">
+        <div class="predict-header">
+            <h1><i class="bi bi-clipboard2-pulse"></i> Lung Cancer Risk Assessment</h1>
+            <p>Enter your health information below to get a prediction from 6 ML algorithms</p>
+        </div>
+
+        <form method="POST" action="{% url 'predict' %}" class="predict-form">
+            {% csrf_token %}
+            <div class="row g-4">
+                <!-- Personal Information -->
+                <div class="col-lg-4">
+                    <div class="glass-card-static h-100">
+                        <div class="form-section-title">
+                            <i class="bi bi-person-badge"></i> Personal Information
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-gender">{{ form.GENDER.label }}</label>
+                            {{ form.GENDER }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-age">{{ form.AGE.label }}</label>
+                            {{ form.AGE }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lifestyle Factors -->
+                <div class="col-lg-4">
+                    <div class="glass-card-static h-100">
+                        <div class="form-section-title">
+                            <i class="bi bi-heart-pulse"></i> Lifestyle Factors
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.SMOKING.label }}</label>
+                            {{ form.SMOKING }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.ALCOHOL_CONSUMING.label }}</label>
+                            {{ form.ALCOHOL_CONSUMING }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.PEER_PRESSURE.label }}</label>
+                            {{ form.PEER_PRESSURE }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.ANXIETY.label }}</label>
+                            {{ form.ANXIETY }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.CHRONIC_DISEASE.label }}</label>
+                            {{ form.CHRONIC_DISEASE }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Symptoms -->
+                <div class="col-lg-4">
+                    <div class="glass-card-static h-100">
+                        <div class="form-section-title">
+                            <i class="bi bi-activity"></i> Symptoms
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.YELLOW_FINGERS.label }}</label>
+                            {{ form.YELLOW_FINGERS }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.FATIGUE.label }}</label>
+                            {{ form.FATIGUE }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.ALLERGY.label }}</label>
+                            {{ form.ALLERGY }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.WHEEZING.label }}</label>
+                            {{ form.WHEEZING }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.COUGHING.label }}</label>
+                            {{ form.COUGHING }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.SHORTNESS_OF_BREATH.label }}</label>
+                            {{ form.SHORTNESS_OF_BREATH }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.SWALLOWING_DIFFICULTY.label }}</label>
+                            {{ form.SWALLOWING_DIFFICULTY }}
+                        </div>
+                        <div class="mb-3">
+                            <label>{{ form.CHEST_PAIN.label }}</label>
+                            {{ form.CHEST_PAIN }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-predict" id="btn-predict">
+                    <i class="bi bi-cpu"></i> Run Prediction
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+{
+  "Logistic Regression": {
+    "accuracy": 90.32,
+    "precision": 94.44,
+    "recall": 94.44,
+    "f1_score": 94.44,
+    "confusion_matrix": [
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        51
+      ]
+    ],
+    "model_file": "logistic_regression.pkl"
+  },
+  "Decision Tree": {
+    "accuracy": 91.94,
+    "precision": 98.04,
+    "recall": 92.59,
+    "f1_score": 95.24,
+    "confusion_matrix": [
+      [
+        7,
+        1
+      ],
+      [
+        4,
+        50
+      ]
+    ],
+    "model_file": "decision_tree.pkl"
+  },
+  "Random Forest": {
+    "accuracy": 91.94,
+    "precision": 96.23,
+    "recall": 94.44,
+    "f1_score": 95.33,
+    "confusion_matrix": [
+      [
+        6,
+        2
+      ],
+      [
+        3,
+        51
+      ]
+    ],
+    "model_file": "random_forest.pkl"
+  },
+  "SVM": {
+    "accuracy": 85.48,
+    "precision": 89.47,
+    "recall": 94.44,
+    "f1_score": 91.89,
+    "confusion_matrix": [
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        51
+      ]
+    ],
+    "model_file": "svm.pkl"
+  },
+  "KNN": {
+    "accuracy": 87.1,
+    "precision": 91.07,
+    "recall": 94.44,
+    "f1_score": 92.73,
+    "confusion_matrix": [
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        51
+      ]
+    ],
+    "model_file": "knn.pkl"
+  },
+  "Naive Bayes": {
+    "accuracy": 85.48,
+    "precision": 92.45,
+    "recall": 90.74,
+    "f1_score": 91.59,
+    "confusion_matrix": [
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        49
+      ]
+    ],
+    "model_file": "naive_bayes.pkl"
+  },
+  "best_model": "Decision Tree"
+}

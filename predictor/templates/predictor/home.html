@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-badge"><i class="bi bi-shield-check"></i> ML-Powered Health Analysis</div>
+        <h1 class="hero-title">Lung Cancer<br>Risk Prediction</h1>
+        <p class="hero-subtitle">
+            An intelligent system that uses 6 machine learning classification algorithms 
+            to predict lung cancer risk based on lifestyle habits, symptoms, and medical conditions.
+        </p>
+        <div class="hero-buttons">
+            {% if user.is_authenticated %}
+            <a href="{% url 'predict' %}" class="btn btn-hero-primary me-3">
+                <i class="bi bi-clipboard2-pulse"></i> Start Prediction
+            </a>
+            <a href="{% url 'results' %}" class="btn btn-hero-secondary">
+                <i class="bi bi-bar-chart-line"></i> View Accuracy
+            </a>
+            {% else %}
+            <a href="{% url 'register' %}" class="btn btn-hero-primary me-3">
+                <i class="bi bi-person-plus"></i> Get Started
+            </a>
+            <a href="{% url 'login' %}" class="btn btn-hero-secondary">
+                <i class="bi bi-box-arrow-in-right"></i> Sign In
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-4">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3">
+                <div class="metric-card animate-fade-in">
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">ML Algorithms</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="metric-card animate-fade-in animate-delay-1">
+                    <div class="metric-value">15</div>
+                    <div class="metric-label">Input Features</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="metric-card animate-fade-in animate-delay-2">
+                    <div class="metric-value">310</div>
+                    <div class="metric-label">Dataset Records</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="metric-card animate-fade-in animate-delay-3">
+                    <div class="metric-value" style="font-size:1.5rem;">Real-time</div>
+                    <div class="metric-label">Predictions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Algorithms Section -->
+<section class="feature-section">
+    <div class="container">
+        <h2 class="section-title">Classification Algorithms</h2>
+        <p class="section-subtitle">We use 6 powerful ML algorithms and compare their performance</p>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-1">
+                    <div class="feature-icon icon-1"><i class="bi bi-graph-up"></i></div>
+                    <h5>Logistic Regression</h5>
+                    <p>Statistical model using sigmoid function for binary classification</p>
+                    {% if model_accuracies.Logistic_Regression %}<span class="badge bg-success mt-2">{{ model_accuracies.Logistic_Regression }}%</span>{% endif %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-2">
+                    <div class="feature-icon icon-2"><i class="bi bi-diagram-3"></i></div>
+                    <h5>Decision Tree</h5>
+                    <p>Tree-structured model that makes decisions based on feature thresholds</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-3">
+                    <div class="feature-icon icon-3"><i class="bi bi-tree"></i></div>
+                    <h5>Random Forest</h5>
+                    <p>Ensemble of decision trees for robust and accurate predictions</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-4">
+                    <div class="feature-icon icon-4"><i class="bi bi-vector-pen"></i></div>
+                    <h5>Support Vector Machine</h5>
+                    <p>Finds optimal hyperplane to separate classes in feature space</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-5">
+                    <div class="feature-icon icon-5"><i class="bi bi-bullseye"></i></div>
+                    <h5>K-Nearest Neighbors</h5>
+                    <p>Classifies based on similarity to nearest data points</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card animate-fade-in animate-delay-6">
+                    <div class="feature-icon icon-6"><i class="bi bi-calculator"></i></div>
+                    <h5>Naive Bayes</h5>
+                    <p>Probabilistic classifier based on Bayes' theorem</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Three simple steps to get your prediction</p>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="glass-card text-center animate-fade-in animate-delay-1">
+                    <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;">
+                        <i class="bi bi-1-circle-fill"></i>
+                    </div>
+                    <h5>Enter Your Data</h5>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Fill in 15 health and lifestyle parameters in our easy-to-use form</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card text-center animate-fade-in animate-delay-2">
+                    <div style="font-size: 2.5rem; color: var(--blue); margin-bottom: 1rem;">
+                        <i class="bi bi-2-circle-fill"></i>
+                    </div>
+                    <h5>ML Analysis</h5>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">6 trained algorithms analyze your data simultaneously</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card text-center animate-fade-in animate-delay-3">
+                    <div style="font-size: 2.5rem; color: var(--purple); margin-bottom: 1rem;">
+                        <i class="bi bi-3-circle-fill"></i>
+                    </div>
+                    <h5>Get Results</h5>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">View predictions from each algorithm with accuracy comparison</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

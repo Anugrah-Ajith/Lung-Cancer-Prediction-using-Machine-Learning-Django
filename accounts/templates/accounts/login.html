@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="text-center mb-3">
+            <i class="bi bi-lungs-fill" style="font-size: 2.5rem; color: var(--accent);"></i>
+        </div>
+        <h2 class="auth-title">Welcome Back</h2>
+        <p class="auth-subtitle">Sign in to access lung cancer prediction</p>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="login-username">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="login-password">Password</label>
+                {{ form.password }}
+            </div>
+            {% if form.errors %}
+            <div class="alert alert-danger py-2" style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; color: #f87171; font-size: 0.85rem;">
+                <i class="bi bi-exclamation-triangle"></i> Invalid username or password.
+            </div>
+            {% endif %}
+            <button type="submit" class="btn btn-submit">
+                <i class="bi bi-box-arrow-in-right"></i> Sign In
+            </button>
+        </form>
+        <p class="text-center mt-3" style="color: var(--text-secondary); font-size: 0.9rem;">
+            Don't have an account? <a href="{% url 'register' %}" class="auth-link">Create one</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

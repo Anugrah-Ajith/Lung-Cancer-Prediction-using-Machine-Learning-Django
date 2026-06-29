@@ -3,6 +3,9 @@
 # Install dependencies
 pip install -r requirements.txt
 
+# Run database migrations (creates auth tables in /tmp/db.sqlite3 on Vercel)
+python manage.py migrate --noinput
+
 # Collect static files
 python manage.py collectstatic --noinput
 
